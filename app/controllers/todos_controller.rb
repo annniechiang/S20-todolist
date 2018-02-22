@@ -19,11 +19,13 @@ class TodosController < ApplicationController
 
   def edit
     @todo = Todo.find(params[:id])
+    render :json => { :id => @todo.id, :title => @todo.title }
   end
 
   def update
     @todo = Todo.find(params[:id])
     @todo.update_attributes(todo_params)
+    render :json => { :id => @todo.id, :title => @todo.title }
 
     # redirect_to todos_path
   end
